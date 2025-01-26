@@ -8,12 +8,16 @@ load_dotenv()
 email_user = os.getenv("EMAIL_USER")
 email_password = os.getenv("EMAIL_PASSWORD")
 email_recipient = os.getenv("EMAIL_RECIPIENT")
+file = os.getenv("FILE_NAME")
 
 msg = EmailMessage()
 msg["From"] = email_user
 msg["To"] = email_recipient
 msg["Subject"] = "Teste de email"
 msg.set_content("Corpo do teste de email")
+
+with open(file, "rb") as f:
+  msg.add_attachment(f.read(), maintype='application', subtype='pdf', filename='arquivo.pdf')
 
 with SMTP.SMTP("smtp.gmail.com", 587) as smtp:
   smtp.starttls()

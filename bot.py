@@ -7,10 +7,11 @@ load_dotenv()
 
 email_user = os.getenv("EMAIL_USER")
 email_password = os.getenv("EMAIL_PASSWORD")
+email_recipient = os.getenv("EMAIL_RECIPIENT")
 
 msg = EmailMessage()
 msg["From"] = email_user
-msg["To"] = "gustavopmorelli@gmail.com"
+msg["To"] = email_recipient
 msg["Subject"] = "Teste de email"
 msg.set_content("Corpo do teste de email")
 

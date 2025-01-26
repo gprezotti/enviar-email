@@ -1,6 +1,6 @@
 # Arquivos do ambiente virtual
 venv/
-.env
+*.env
 
 # Configurações do sistema operacional
 .DS_Store
